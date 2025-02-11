@@ -20,3 +20,14 @@ void change_directory(char *path) {
     }
 
 }
+
+void clear(){
+    printf("\033[H\033[J"); // ANSI escape sequence to clear screen.
+    // (move to top, clear everything in front)
+    fflush(stdout); //force the output 
+    return 0;
+}
+
+void directory(char* path){
+    
+}
