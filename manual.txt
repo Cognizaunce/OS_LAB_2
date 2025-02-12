@@ -1,0 +1,15 @@
+cd              change the current directory to the specified directory. 
+                if no directory is specified, print the current working 
+                directory to the terminal
+clr             clear the terminal
+dir             list the contents of the specified directory. if no 
+                directory is specified, print the contents of the current 
+                working directory.
+environ         print a list of all the evironment variables.
+echo            print a specified message to the terminal. if no message
+                is specified, print a new line to the terminal.
+help            open the user manual in the terminal for user to access.
+                when manual is open, press space to continue through 
+                manual, and press q to exit the manual.
+pause
+quit
