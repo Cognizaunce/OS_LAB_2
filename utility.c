@@ -72,8 +72,3 @@ void pause(char *path){
 void quit(){
 
 }
-
-/*A function to safely extract user input, used for all processes*/
-static char* get_input(){
-
-}
