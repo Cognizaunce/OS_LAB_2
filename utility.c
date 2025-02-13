@@ -13,8 +13,9 @@ Julian Olano Medina - 100855732
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <dirent.h>
 
-//change to a specific directory, or if unspecified print current directory 
+// Change to a specific directory, or if unspecified, print current directory 
 void change_directory(char *path) {
     if (path == NULL) {
         char cwd[1024];
@@ -23,74 +24,68 @@ void change_directory(char *path) {
         } else {
             perror("getcwd() error");
         }
-    }
-    else {
+    } else {
         if (chdir(path) != 0) {
             perror("myshell");
         }
     }
-
 }
 
-//clear terminal
-void clear(){
-    printf("\033[H\033[J"); // ANSI escape sequence to clear screen.
-    // (move to top, clear everything in front)
-    fflush(stdout); //force the output 
-    return 0;
+// Clear terminal
+void clear() {
+    printf("\033[H\033[J"); // ANSI escape sequence to clear screen
+    fflush(stdout);
 }
 
-//list the contents of directory
-void directory(char* path){
-    //if no path is specified then list the contents of current directory
-    if(path == NULL) {
-        system("ls");
-    }else{
-        //if path is specified then list the contents of specified path
-        char command[1024] = "ls ";
-        strcat(command, path);
-        system(command);
+// List the contents of a directory
+void directory(char* path) {
+    DIR *dir;
+    struct dirent *entry;
+
+    if (path == NULL) {
+        path = "."; // Default to current directory
     }
+
+    dir = opendir(path);
+    if (dir == NULL) {
+        perror("myshell: Unable to open directory");
+        return;
+    }
+
+    while ((entry = readdir(dir)) != NULL) {
+        printf("%s\n", entry->d_name);
+    }
+    closedir(dir);
 }
 
-// print list of environment variables in the terminal
-void environment_variables(){
+// Print list of environment variables in the terminal
+void environ_list() {
     system("env");
-
 }
 
-//print something to the screen
-void echo(char *sentence){
-    char command[1024] = "echo ";
-    strcat(command, sentence);
-    strcat(command, "\n");
-    system(command);
-}
-
-//view the user manual to the terminal screen for the user to view
-void help(){
-    char command[1024] = "more -d manual.txt";
-    system(command);    
-}
-
-//pause execution of the shell until certain input is detected
-void pause(){
-    char *pause;
-    printf("pausing shell, press enter key to return to normal execution\n");
-   
-    while(1){
-        scanf("%c", pause);
-        if(*pause == '\n'){
-            break;
-        }
+// Print a sentence to the screen
+void echo(char *sentence) {
+    if (sentence) {
+        printf("%s\n", sentence);
     }
-
-    printf("welcome back!\n");
-
 }
 
-//terminate the shell
-void quit(){
-    printf("exiting myShell\n");
+// View the user manual
+void help() {
+    if (system("more -d manual.txt") != 0) {
+        system("cat manual.txt"); // Fallback for non-Linux systems
+    }
+}
+
+// Pause execution of the shell until Enter is pressed
+void pause_shell() {
+    printf("Pausing shell, press Enter key to continue...\n");
+    while (getchar() != '\n');
+    printf("Welcome back!\n");
+}
+
+// Terminate the shell
+void quit() {
+    printf("Exiting myShell\n");
     exit(0);
 }
