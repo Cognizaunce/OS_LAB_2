@@ -29,7 +29,3 @@ char* string_acquire(char* s, int size, FILE* stream) {
 
     return s;
 }
-
-int main(){
-
-}
