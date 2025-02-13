@@ -6,4 +6,4 @@
 // Function prototype
 char* string_acquire(char* s, int size, FILE* stream);
 
-#endif // STRING_UTILS_H
+#endif // STRING_ACQUIRE_H
