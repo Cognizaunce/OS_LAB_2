@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) {
 
     // Interactive Mode
     while (1) {
-        printf("MyShell> ");
+        printf("\033[1;36mMyShell> ");
         if (fgets(input, sizeof(input), stdin) == NULL) {
             break; // Exit on EOF
         }
