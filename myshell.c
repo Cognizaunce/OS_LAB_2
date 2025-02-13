@@ -33,11 +33,6 @@ void execute_command(char *input) {
     }
 }
 
-/*A function to safely extract user input, used for all processes*/
-static char* get_input(){
-
-}
-
 int main() {
 char input[1024]; // Buffer for user input
 while (1) {

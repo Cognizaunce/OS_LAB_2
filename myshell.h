@@ -4,6 +4,7 @@
 #include <stdlib.h> // Standard library for functions like malloc
 #include <string.h> // String handling functions
 #include <unistd.h> // Provides access to the POSIX operating system API
+#include "string_acquire.h" // Safely reads a string from a stream
 
 /*Changes the current default directory:
 - Report the current directory if no argument is given
