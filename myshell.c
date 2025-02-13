@@ -1,8 +1,13 @@
 #include "myshell.h"
 
 void execute_command(char *input) {
+    pid_t pid;
+    int status;
+    char *args[100]; // array to hold command arguments
     char *token;
     char *delim = " \n";
+    int i = 0;
+    
     token = strtok(input, delim);
     if (token != NULL) {
         if (strncasecmp(token, "cd") == 0) { //cd
