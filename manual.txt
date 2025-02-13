@@ -11,5 +11,6 @@ echo            print a specified message to the terminal. if no message
 help            open the user manual in the terminal for user to access.
                 when manual is open, press space to continue through 
                 manual, and press q to exit the manual.
-pause
-quit
+pause           pause execution of the terminal until the user presses 
+                'enter'
+quit            exits the myShell terminal

@@ -57,18 +57,30 @@ void echo(char *sentence){
     system(command);
 }
 
-//print the manual 
+//view the user manual to the terminal screen for the user to view
 void help(){
     char command[1024] = "more -d manual.txt";
     system(command);    
 }
 
+//pause execution of the shell until certain input is detected
+void pause(){
+    char *pause;
+    printf("pausing shell, press enter key to return to normal execution\n");
+   
+    while(1){
+        scanf("%c", pause);
+        if(*pause == '\n'){
+            break;
+        }
+    }
 
-void pause(char *path){
+    printf("welcome back!\n");
 
 }
 
-
+//terminate the shell
 void quit(){
-
+    printf("exiting myShell\n");
+    exit(0);
 }
