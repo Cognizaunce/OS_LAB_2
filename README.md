@@ -1,6 +1,9 @@
 # OS_LAB_2
+
 crn: 74025
+
 group 17
+
 contributors: rivka sagi (100780926), rhea mathias(100825543), iqra zahid(100824901), julian olano medina (100855732)
 
 ## overview:
