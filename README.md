@@ -24,7 +24,7 @@ step 2: clone the files into a directory of your choice that will be used to run
 
 step 3: open the command line terminal and navigate to the directory containing the files using the cd command (eg cd directory_name)
 
-step 4: once in the directory, type the "make" command in the command line to run the makefile. Ths will create an executable file called myshell. The file will not run if make and gcc are not already downloaded in the system, to download them type "sudo apt gcc" or "sudo apt make". 
+step 4: once in the directory, type the "make" command in the command line to run the makefile. Ths will create an executable file called myshell. The file will not run if make and gcc are not already downloaded in the system, to download them type "sudo apt install gcc" or "sudo apt install make". 
 
 step 5: run the exectutable file using the command "./myshell" in the command line. once the file is successfully run, you will be presented with a prompt.
 
