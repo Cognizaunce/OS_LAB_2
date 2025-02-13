@@ -35,7 +35,7 @@ void execute_command(char *input) {
     } else if (strcasecmp(args[0], "dir") == 0) {
         directory(args[1]);
     } else if (strcasecmp(args[0], "environ") == 0) {
-        environment_variables();
+        environ_list();
     } else if (strcasecmp(args[0], "echo") == 0) {
         echo(args[1]);
     } else if (strcasecmp(args[0], "help") == 0) {
