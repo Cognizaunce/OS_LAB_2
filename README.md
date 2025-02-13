@@ -38,7 +38,7 @@ cd directory: change the current directory to the directory of choice. if the di
 
 clr: clears all contents on the command line screen
 
-dir directory: lists the content in te directory specified
+dir directory: lists the content in the directory specified
 
 environ: lists all environment strings in the current directory
 
