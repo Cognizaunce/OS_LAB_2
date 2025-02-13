@@ -1,12 +1,10 @@
-/*
-OS - LAB 2
-CRN: 74025
-GROUP 17
-Iqra Zahid - 100824901
-Rhea Mathias - 100825543
-Rivka Sagi - 100780926
-Julian Olano Medina - 100855732
-*/
+# OS - LAB 2
+# CRN: 74025
+# GROUP 17
+# Iqra Zahid - 100824901
+# Rhea Mathias - 100825543
+# Rivka Sagi - 100780926
+# Julian Olano Medina - 100855732
 
 # Makefile
 
