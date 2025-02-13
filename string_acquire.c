@@ -1,17 +1,40 @@
-#include "string_acquire.h"
-// Include implementation-specific headers here and below.
-#include <string.h> // For `size_t` and string functions, part of the C standard library
-#include <stdio.h>  // For warning message, part of the C standard library
-
 /*
- * Safely reads a string from a stream, handling buffer overflow and newlines.
- * POSIX, ANSI, and ISO C compliant for compiler agnosticism.
- * Returns: The input string `s`, an empty string (default) or NULL on error based on flag.
- * Inputs:
- * - `s`           The buffer to store the string.
- * - `size`        The size of the buffer.
- * - `stream`      The stream to read from (e.g., stdin).
- * - `return_null` If nonzero, return NULL on error; otherwise, return an empty string.
+ * Safely reads a string from a stream while handling buffer overflows and newlines.
+ *
+ * This function reads at most `size - 1` characters from `stream` into `s`, ensuring null termination.
+ * Excess characters are discarded to prevent buffer overflows. The newline character, if present, is trimmed.
+ *
+ * Parameters:
+ * - `s`           [char*]  - Pointer to the buffer where the input string is stored.
+ * - `size`        [int]    - Maximum number of characters to read, including the null terminator.
+ * - `stream`      [FILE*]  - The input stream (e.g., `stdin`).
+ * - `return_null` [int]    - If nonzero, returns `NULL` on error; otherwise, returns an empty string.
+ *
+ * Returns:
+ * - On success: Returns `s` containing the input string.
+ * - On invalid parameters: Returns the original pointer `s`, allowing the caller to handle errors.
+ * - If reading fails: Returns either `NULL` (if `return_null` is set) or an empty string.
+ *
+ * Behavioural Notes:
+ * - Logs a warning to `stderr` if invalid parameters are passed.
+ * - Does not log a warning if the provided buffer size is too small, as the caller is responsible for handling this case.
+ *
+ * Compatibility:
+ * - Compliant with ANSI C, ISO C, and POSIX standards.
+ */
+
+#include "string_acquire.h" // Include implementation-specific headers below.
+#include <string.h> // Provides `size_t` and string functions, part of the C standard library
+#include <stdio.h>  // Provides I/O functions, including `fprintf` and `fgets`
+
+ /*
+ * Safely reads a string from a stream, handling buffer overflow and newlines:
+ *
+ *  `Extended documentation is available in the source file.`
+ *
+ * - On success: Returns `s` containing the input string.
+ * - On invalid parameters: Returns the original pointer `s`, allowing the caller to handle errors.
+ * - If reading fails: Returns either `NULL` (if `return_null` is set) or an empty string.
  */
 char* string_acquire(char* s, int size, FILE* stream, int return_null) {
     if (s == NULL || size <= 0 || stream == NULL) {
