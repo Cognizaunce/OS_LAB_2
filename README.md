@@ -70,9 +70,13 @@ the makefile automates the compilation process of the c files by using gcc inter
 ## usage examples:
 
 myshell> cd /home/user/desktop
+
 myshell> dir
+
 example1.txt example2.txt
+
 myshell> echo "hello world"
+
 hello world
 
 
