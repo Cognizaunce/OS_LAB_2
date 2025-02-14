@@ -64,10 +64,11 @@ void environ_list() {
 }
 
 // Print a sentence to the screen
-void echo(char *sentence) {
-    if (sentence) {
-        printf("%s\n", sentence);
+void echo(int size, char **sentence) {
+    for(int i=1; i<size; i++){
+        printf("%s ", sentence[i]);
     }
+    printf("\n");
 }
 
 // View the user manual

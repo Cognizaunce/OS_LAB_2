@@ -33,7 +33,7 @@ void directory(char *path);
 void environ_list();  // Renamed to avoid conflict with `environ`
 
 /* Prints the provided argument to the terminal. */
-void echo(char *input);
+void echo(int size, char **input);
 
 /* Displays the user manual. */
 void help();

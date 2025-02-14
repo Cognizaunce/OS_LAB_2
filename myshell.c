@@ -37,7 +37,7 @@ void execute_command(char *input) {
     } else if (strcasecmp(args[0], "environ") == 0) {
         environ_list();
     } else if (strcasecmp(args[0], "echo") == 0) {
-        echo(args[1]);
+        echo(i, args);
     } else if (strcasecmp(args[0], "help") == 0) {
         help();
     } else if (strcasecmp(args[0], "pause") == 0) {
