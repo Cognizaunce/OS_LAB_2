@@ -41,7 +41,7 @@ void execute_command(char *input) {
     } else if (strcasecmp(args[0], "help") == 0) {
         help();
     } else if (strcasecmp(args[0], "pause") == 0) {
-        pause();
+        pause_shell();
     } else if (strcasecmp(args[0], "quit") == 0) {
         quit();
     } else {
