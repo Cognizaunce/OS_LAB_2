@@ -59,7 +59,7 @@ void test4() {
 void test5() {
     //tests echo
     printf("echo \n");
-    testcase_input("echo "hello world" ");
+    testcase_input("echo \"hello world\" ");
     testcase_check("hello world \n"); 
 }
 
